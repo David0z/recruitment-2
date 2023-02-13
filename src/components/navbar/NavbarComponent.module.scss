@@ -1,0 +1,10 @@
+.wrapper {
+  padding-block: 0;
+
+  [data-view] {
+    
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

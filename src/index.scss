@@ -1,0 +1,16 @@
+// $primary: red;
+$secondary: rgb(230, 230, 230);
+
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
