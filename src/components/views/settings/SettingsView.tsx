@@ -109,22 +109,20 @@ const SettingsView = ({isEditMode = false, userToEdit}: SettingsViewProps) => {
   };
 
   useEffect(() => {
-    if (isEditMode && userToEdit) {
-      setValue('name', userToEdit.name)
-      setValue('username', userToEdit.username)
-      setValue('email', userToEdit.email)
-      setValue('phone', userToEdit.phone)
-      setValue('street', userToEdit.address.street)
-      setValue('suite', userToEdit.address.suite)
-      setValue('city', userToEdit.address.city)
-      setValue('zipcode', userToEdit.address.zipcode)
-      setValue('lat', parseFloat(userToEdit.address.geo.lat))
-      setValue('lng', parseFloat(userToEdit.address.geo.lng))
-      setValue('website', userToEdit.website)
-      setValue('companyName', userToEdit.company.name)
-      setValue('catchPhrase', userToEdit.company.catchPhrase)
-      setValue('bs', userToEdit.company.bs)
-    }
+      setValue('name', userToEdit && isEditMode ? userToEdit.name : '')
+      setValue('username', userToEdit && isEditMode ? userToEdit.username : '')
+      setValue('email', userToEdit && isEditMode ? userToEdit.email : '')
+      setValue('phone', userToEdit && isEditMode ? userToEdit.phone : '')
+      setValue('street', userToEdit && isEditMode ? userToEdit.address.street : '')
+      setValue('suite', userToEdit && isEditMode ? userToEdit.address.suite : '')
+      setValue('city', userToEdit && isEditMode ? userToEdit.address.city : '')
+      setValue('zipcode', userToEdit && isEditMode ? userToEdit.address.zipcode : '')
+      setValue('lat', userToEdit && isEditMode ? parseFloat(userToEdit.address.geo.lat) : null)
+      setValue('lng', userToEdit && isEditMode ? parseFloat(userToEdit.address.geo.lng) : null)
+      setValue('website', userToEdit && isEditMode ? userToEdit.website : '')
+      setValue('companyName', userToEdit && isEditMode ? userToEdit.company.name : '')
+      setValue('catchPhrase', userToEdit && isEditMode ? userToEdit.company.catchPhrase : '')
+      setValue('bs', userToEdit && isEditMode ? userToEdit.company.bs : '')
   }, [isEditMode, userToEdit, setValue])
 
   return (
